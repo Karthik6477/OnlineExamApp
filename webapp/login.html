@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="loginCss.css">
+</head>
+
+<body>
+  <form action="loginserv" method="post" class="loginform">
+    <!-- <img src="onlineExamImage.jpg" alt="onlineexam"  class="img1",class="centered"> -->
+<div class="container">
+    <h1 class="h1move" class="login"><u>Login</u></h1>
+    <label for="username" class="usernamealign">Email id</label><br>
+    <input type="email" pattern="[a-z][a-z0-9]+[@][a-z]+[.][a-z]+" title="You have to insert @ and . in the username ex.abc@gmail.com" name="username" id="username" placeholder="abc@domain.com" autofocus required><br><br>
+    <label for="password" class="passwordalign">Password</label><br>
+    <input type="password" pattern="[A-Za-z0-9@#]{8,16}" name="password" id="password" required placeholder="password" title="Minimum 8 characters should be there.Special characters allowed"><br><br>
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button><br><br>
+    <a href="register.jsp" class="newUserMove" title="You have to sign-up!">New user?</a>
+  
+</div>
+</form>
+    
+</body>
+
+</html>
