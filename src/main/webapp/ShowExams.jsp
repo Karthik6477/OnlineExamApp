@@ -18,11 +18,16 @@ h2{
 body{
     background: linear-gradient(to right, springgreen, rgb(253, 253, 53));
   }
+
+  #ExamDetails:hover{
+    color: white;
+   	background-color: black;
+ } 
 </style>
 <title>List of Exams</title>
 </head>
 <body>
-	<a href="ExamDetails.jsp"><h4 style="float: right;margin-right:10px;">ExamDetails</h4></a>
+	<a id="ExamDetails" href="ExamDetails.jsp"><h4 style="float: right;margin-right:10px;">ExamDetails</h4></a>
 	<h2>Exams</h2>
 	<% ResultSet rs=ShowExamDetails.showExams(); %>
 	<table style="width: 80%;margin-left: 100px;">
