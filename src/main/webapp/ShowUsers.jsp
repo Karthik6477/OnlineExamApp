@@ -18,11 +18,7 @@ h2{
 body{
     background: linear-gradient(to right, springgreen, rgb(253, 253, 53));
   }
-  
-#ExamDetails:hover{
-    color: white;
-   	background-color: black;
- } 
+
 </style>
 <title>List of Users</title>
 </head>
