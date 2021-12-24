@@ -23,7 +23,7 @@ body{
 <title>List of Exams</title>
 </head>
 <body>
-	<a href="FilterByDifficulty.html"><h4 style="float: right;margin-right:10px;">Home</h4></a>
+	<a href="FilterByDifficulty.html"><h4 style="float: right;margin-right:10px;">Choose Difficulty</h4></a>
 	<h2>Exams</h2>
 	<% ResultSet rs=ShowExamDetails.showExams();
 	%>
@@ -33,7 +33,7 @@ body{
             <th>Exam Name</th>
             <th>Exam Type</th>
             <th>Difficulty Level</th>
-            <th>Duration Hours</th>
+            <th>Duration Minutes</th>
             <th>Exam</th>
         </tr>
         <% while(rs.next()){ 

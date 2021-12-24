@@ -5,9 +5,15 @@ public class ExamDetailsPojo {
 	private String examName;
 	private String examType;
 	private String difficultyLevel;
-	private int durationHours;
+	private int durationMinutes;
 	
 	
+	public int getDurationMinutes() {
+		return durationMinutes;
+	}
+	public void setDurationMinutes(int durationMinutes) {
+		this.durationMinutes = durationMinutes;
+	}
 	public int getExamId() {
 		return examId;
 	}
@@ -32,29 +38,24 @@ public class ExamDetailsPojo {
 	public void setDifficultyLevel(String difficultyLevel) {
 		this.difficultyLevel = difficultyLevel;
 	}
-	public int getDurationHours() {
-		return durationHours;
-	}
-	public void setDurationHours(int durationHours) {
-		this.durationHours = durationHours;
-	}
+	
 	
 	//for adding exam
-	public ExamDetailsPojo(int examId, String examName, String examType, String difficultyLevel, int durationHours) {
+	public ExamDetailsPojo(int examId, String examName, String examType, String difficultyLevel, int durationMinutes) {
 		super();
 		this.examId = examId;
 		this.examName = examName;
 		this.examType = examType;
 		this.difficultyLevel = difficultyLevel;
-		this.durationHours = durationHours;
+		this.durationMinutes = durationMinutes;
 	}
 	//for updating exam
-	public ExamDetailsPojo( String examType, String difficultyLevel, int durationHours,int examId) {
+	public ExamDetailsPojo( String examType, String difficultyLevel, int durationMinutes,int examId) {
 		super();
 		this.examId = examId;
 		this.examType = examType;
 		this.difficultyLevel = difficultyLevel;
-		this.durationHours = durationHours;
+		this.durationMinutes = durationMinutes;
 	}
 	//for deleting exam
 	public ExamDetailsPojo(int examId) {
@@ -64,7 +65,7 @@ public class ExamDetailsPojo {
 	@Override
 	public String toString() {
 		return "ExamDetailsPojo [examId=" + examId + ", examName=" + examName + ", examType=" + examType
-				+ ", difficultyLevel=" + difficultyLevel + ", durationHours=" + durationHours + "]";
+				+ ", difficultyLevel=" + difficultyLevel + ", durationMinutes=" + durationMinutes + "]";
 	}
 	
 	

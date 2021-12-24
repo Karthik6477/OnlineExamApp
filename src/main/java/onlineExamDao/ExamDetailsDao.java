@@ -16,7 +16,7 @@ public class ExamDetailsDao {
 			pstmt.setString(2, edp.getExamName());
 			pstmt.setString(3, edp.getExamType());
 			pstmt.setString(4, edp.getDifficultyLevel());
-			pstmt.setInt(5, edp.getDurationHours());
+			pstmt.setInt(5, edp.getDurationMinutes());
 			i=pstmt.executeUpdate();
 			if(i>0) {
 				return true;
@@ -27,11 +27,11 @@ public class ExamDetailsDao {
 	}
 	public static boolean updateExam(ExamDetailsPojo edp) throws SQLException {
 		Connection con=ConnectionPage.connection();
-		String query="update examDetails set examtype=?,difficultylevel=?,durationhours=? where examid=?";
+		String query="update examDetails set examtype=?,difficultylevel=?,durationMinutes=? where examid=?";
 			PreparedStatement pstmt=con.prepareStatement(query);
 			pstmt.setString(1, edp.getExamType());
 			pstmt.setString(2, edp.getDifficultyLevel());
-			pstmt.setInt(3, edp.getDurationHours());
+			pstmt.setInt(3, edp.getDurationMinutes());
 			pstmt.setInt(4, edp.getExamId());
 			i=pstmt.executeUpdate();
 			if(i>0) {
