@@ -46,14 +46,14 @@ body{
                 <td><%=rs.getString(4)%></td>
                 <td><%=rs.getString(5)%></td>
                 <% if(rs.getString(2).equals("JAVA")){%>
-                	<td><a href="JavaExamEasy.jsp"><button type="submit">Take Exam</button></a></td>
+                	<td><a href="JavaExamEasy.jsp?examid=<%=rs.getInt(1)%>&examName=<%=rs.getString(2)%>"><button type="submit">Take Exam</button></a></td>
                 	
                <% } 
                 else if(rs.getString(2).equals("HTML")){%>
                 	<td><a href="HtmlExamEasy.jsp"><button type="submit">Take Exam</button></a></td>
                <%  }
                 else if(rs.getString(2).equals("CSS")){%>
-                	<td><a href="CssExamEasy.jsp"><button type="submit">Take Exam</button></a></td>
+                	<td><a href="CssExamEasy.jsp?examid=<%=rs.getInt(1)%>&examName=<%=rs.getString(2)%>"><button type="submit">Take Exam</button></a></td>
                <%  }
                  }}%>
                 

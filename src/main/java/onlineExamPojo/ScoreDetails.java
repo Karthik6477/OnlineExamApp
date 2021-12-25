@@ -4,7 +4,7 @@ public class ScoreDetails {
 	private int studentId;
 	private int examId;
 	private String examName;
-	private double score;
+	private int score;
 	private String passOrFail;
 	private String grade;
 	
@@ -27,10 +27,10 @@ public class ScoreDetails {
 	public void setExamName(String examName) {
 		this.examName = examName;
 	}
-	public double getScore() {
+	public int getScore() {
 		return score;
 	}
-	public void setScore(double score) {
+	public void setScore(int score) {
 		this.score = score;
 	}
 	public String getPassOrFail() {
@@ -45,7 +45,7 @@ public class ScoreDetails {
 	public void setGrade(String grade) {
 		this.grade = grade;
 	}
-	public ScoreDetails(int studentId, int examId, String examName, double score, String passOrFail, String grade) {
+	public ScoreDetails(int studentId, int examId, String examName, int score, String passOrFail, String grade) {
 		super();
 		this.studentId = studentId;
 		this.examId = examId;
@@ -53,6 +53,11 @@ public class ScoreDetails {
 		this.score = score;
 		this.passOrFail = passOrFail;
 		this.grade = grade;
+	}
+	@Override
+	public String toString() {
+		return "ScoreDetails [studentId=" + studentId + ", examId=" + examId + ", examName=" + examName + ", score="
+				+ score + ", passOrFail=" + passOrFail + ", grade=" + grade + "]";
 	}
 	
 }

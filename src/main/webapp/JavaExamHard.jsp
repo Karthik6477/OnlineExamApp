@@ -5,6 +5,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <style>
+b{
+    font-size: xx-large;
+}
+#clock{
+    position: absolute;
+    left: 1200px;
+    top: 100px;
+    font-size: xx-large;
+}
 h2{
 	text-align: center;
 }
@@ -17,12 +26,39 @@ margin-top:120px;
 left:170px;
 font-size:30px;
 }
+#startButton{
+position: absolute;
+margin-top:220px;
+left:630px;
+width:100px;
+height:50px;
+font-weight:bold;
+font-size:130%;
+background-color:rgb(250, 156, 140);
+}
+#startButton:hover{
+background-color:black;
+color:white;
+}
+#result{
+font-size:large;
+text-align:center;
+}
+#buttons{
+visibility:hidden;
+}
 </style>
-<title>JAVA Exam</title>
+<title>Java Exam</title>
 </head>
 <body>
-<div>
+	
 	<h2><u>Java Exam</u></h2>
+	<div id="clock">
+    <b id="hour">--</b><label> &nbsp;:&nbsp;</label><b id="min">--</b>
+</div>
+<br> <button id="startButton" onclick="clcok()">Start</button>
+	
+	<div>
 	<div class="questions" id="question1">
 	<p>1) What do you mean by nameless objects?<br>
 		<input type="radio" name="answer1" value="An object created by using the new keyword.">An object created by using the new keyword.<br>
@@ -112,13 +148,15 @@ font-size:30px;
 		<input type="radio" name="answer10" value="None of the above">None of the above<br>
 		<!-- <button>Submit</button> -->
 	</p>
-	<p id="result"></p>
+	
 	</div>
-	
-	
-<button onclick="qu()" style="margin-left:650px;margin-top:380px;">Submit</button>
-<button onclick="ans()">submit</button>	
+	</div>
 
+
+<p id="result"></p>
+<div id="buttons">
+<button onclick="qu()" style="margin-left:650px;margin-top:380px;">Next</button>
+<button onclick="ans()">submit</button>
 </div>
 </body>
 </html>
@@ -137,7 +175,20 @@ function ans(){
 	var ans9=document.getElementsByName("answer9");
 	var ans10=document.getElementsByName("answer10");
 	
-		//answer 1
+	 document.getElementById("question1").style.visibility="hidden";
+     document.getElementById("question2").style.visibility="hidden";
+     document.getElementById("question3").style.visibility="hidden";
+     document.getElementById("question4").style.visibility="hidden";
+     document.getElementById("question5").style.visibility="hidden";
+     document.getElementById("question6").style.visibility="hidden";
+     document.getElementById("question7").style.visibility="hidden";
+     document.getElementById("question8").style.visibility="hidden";
+     document.getElementById("question9").style.visibility="hidden";
+     document.getElementById("question10").style.visibility="hidden";
+     
+	
+	
+   //answer 1
 		const rbs=document.querySelectorAll('input[name="answer1"]');
 		for(const rb of rbs){
 			if(rb.checked){
@@ -249,14 +300,15 @@ function ans(){
 		}
 		
 		console.log(mark);
-	
+		document.getElementById("result").innerHTML="Your Mark Is: "+mark;	
 
-		document.getElementById("result").innerHTML=mark;
-	
+		   clearInterval(inter);
+		
+		document.getElementById("buttons").style.visibility="hidden";
 
 }
 
-		document.getElementById("question1").style.visibility="visible";
+		document.getElementById("question1").style.visibility="hidden";
         document.getElementById("question2").style.visibility="hidden";
         document.getElementById("question3").style.visibility="hidden";
         document.getElementById("question4").style.visibility="hidden";
@@ -414,5 +466,67 @@ else if(num==10){
     document.getElementById("question9").style.visibility="hidden";
     document.getElementById("question10").style.visibility="hidden";
 }
+}
+document.getElementById("hour").style.color="green";
+document.getElementById("min").style.color="green";    
+
+var min=0;
+var hour=15;
+var inter=0;
+function clcok(){
+	document.getElementById("buttons").style.visibility="visible";
+	document.getElementById("startButton").style.visibility="hidden";
+	document.getElementById("question1").style.visibility="visible";
+    document.getElementById("question2").style.visibility="hidden";
+    document.getElementById("question3").style.visibility="hidden";
+    document.getElementById("question4").style.visibility="hidden";
+    document.getElementById("question5").style.visibility="hidden";
+    document.getElementById("question6").style.visibility="hidden";
+    document.getElementById("question7").style.visibility="hidden";
+    document.getElementById("question8").style.visibility="hidden";
+    document.getElementById("question9").style.visibility="hidden";
+    document.getElementById("question10").style.visibility="hidden";
+inter=setInterval(clock,1000);
+
+}
+
+function clock(){
+
+if(hour==0 && min==1)  {
+   clearInterval(inter);
+}
+
+   console.log(min);
+
+if(min==0){
+hour--;
+console.log(hour);
+ min=60;
+}
+if(hour==7 && min==1){
+document.getElementById("hour").style.color="red";
+document.getElementById("min").style.color="red";
+}
+min--;
+document.getElementById("hour").innerHTML=hour;
+document.getElementById("min").innerHTML=min;
+if(hour==0 && min==0)  {
+    document.getElementById("hour").innerHTML="--";
+    document.getElementById("min").innerHTML="--";
+	 document.getElementById("question1").style.visibility="hidden";
+     document.getElementById("question2").style.visibility="hidden";
+     document.getElementById("question3").style.visibility="hidden";
+     document.getElementById("question4").style.visibility="hidden";
+     document.getElementById("question5").style.visibility="hidden";
+     document.getElementById("question6").style.visibility="hidden";
+     document.getElementById("question7").style.visibility="hidden";
+     document.getElementById("question8").style.visibility="hidden";
+     document.getElementById("question9").style.visibility="hidden";
+     document.getElementById("question10").style.visibility="hidden";
+     
+     console.log(mark);
+		document.getElementById("result").innerHTML="Your Mark Is: "+mark;	
+}
+
 }
 </script>

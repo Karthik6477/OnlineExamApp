@@ -55,9 +55,7 @@ visibility:hidden;
 <body>
 	
 	<h2><u>HTML Exam</u></h2>
-	<% ResultSet rs=ShowExamDetails.showExams();
-	rs.getString(1);
-	%>
+	
 	<div id="clock">
     <b id="hour">--</b><label> &nbsp;:&nbsp;</label><b id="min">--</b>
    
@@ -479,7 +477,7 @@ document.getElementById("hour").style.color="green";
 document.getElementById("min").style.color="green";    
 
 var min=0;
-var hour=1;
+var hour=15;
 var inter=0;
 function clcok(){
 	document.getElementById("buttons").style.visibility="visible";

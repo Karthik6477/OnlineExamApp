@@ -42,6 +42,7 @@ color:white;
 }
 #result{
 font-size:large;
+text-align:center;
 }
 #buttons{
 visibility:hidden;
@@ -470,7 +471,7 @@ document.getElementById("hour").style.color="green";
 document.getElementById("min").style.color="green";    
 
 var min=0;
-var hour=1;
+var hour=15;
 var inter=0;
 function clcok(){
 	document.getElementById("buttons").style.visibility="visible";
