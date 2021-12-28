@@ -47,6 +47,14 @@ color:white;
 font-size:large;
 text-align:center;
 }
+#passFail{
+font-size:large;
+text-align:center;
+}
+#studentGrade{
+font-size:large;
+text-align:center;
+}
 #buttons{
 visibility:hidden;
 }
@@ -155,6 +163,8 @@ visibility:hidden;
 	
 </div>
 <p id="result"></p>
+<p id="passFail"></p>
+<p id="studentGrade"></p>
 
 <div id="buttons">
 <button id="next" onclick="qu()" style="margin-left:650px;margin-top:380px;">Next</button>
@@ -173,7 +183,7 @@ String examName=request.getParameter("examName");
 <input style="visibility:hidden;" type="text" id="score" name="score">
 <input style="visibility:hidden;" type="text" id="passOrFail" name="passOrFail">
 <input style="visibility:hidden;" type="text" id="grade" name="grade">
-<button>Finish Exam</button>
+<button>View my Exam</button>
 </form></div>
 </body>
 </html>
@@ -329,28 +339,37 @@ function ans(){
 		if(mark>=5){
 			
 			document.getElementById("passOrFail").value="pass";
+			document.getElementById("passFail").innerHTML="You have passed";
 			if(mark==5){
 				document.getElementById("grade").value="E";
+				document.getElementById("studentGrade").innerHTML="Your grade is : E";
 			}
 			else if(mark==6){
 				document.getElementById("grade").value="D";
+				document.getElementById("studentGrade").innerHTML="Your grade is : D";
 			}
 			else if(mark==7){
 				document.getElementById("grade").value="C";
+				document.getElementById("studentGrade").innerHTML="Your grade is : C";
 			}
 			else if(mark==8){
 				document.getElementById("grade").value="B";
+				document.getElementById("studentGrade").innerHTML="Your grade is : B";
 			}
 			else if(mark==9){
 				document.getElementById("grade").value="A";
+				document.getElementById("studentGrade").innerHTML="Your grade is : A";
 			}
 			else if(mark==10){
 				document.getElementById("grade").value="O";
+				document.getElementById("studentGrade").innerHTML="Your grade is : O";
 			}
 		}
 		else{
 			document.getElementById("passOrFail").value="fail";
+			document.getElementById("passFail").innerHTML="You have failed";
 			document.getElementById("grade").value="RA";
+			document.getElementById("studentGrade").innerHTML="Your grade is : RA";
 		}
 
 }

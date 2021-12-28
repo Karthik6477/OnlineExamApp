@@ -36,11 +36,22 @@ font-weight:bold;
 font-size:130%;
 background-color:rgb(250, 156, 140);
 }
+#finish{
+	visibility:hidden;
+}
 #startButton:hover{
 background-color:black;
 color:white;
 }
 #result{
+font-size:large;
+text-align:center;
+}
+#passFail{
+font-size:large;
+text-align:center;
+}
+#studentGrade{
 font-size:large;
 text-align:center;
 }
@@ -55,8 +66,6 @@ visibility:hidden;
 	<h2><u>CSS Exam</u></h2>
 	<div id="clock">
     <b id="hour">--</b><label> &nbsp;:&nbsp;</label><b id="min">--</b>
-   
-   
 </div>
 <br> <button id="startButton" onclick="clcok()">Start</button>
 	
@@ -154,10 +163,28 @@ visibility:hidden;
 	
 </div>
 <p id="result"></p>
+<p id="passFail"></p>
+<p id="studentGrade"></p>
+
 <div id="buttons">
-<button onclick="qu()" style="margin-left:650px;margin-top:380px;">Next</button>
-<button onclick="ans()">submit</button>
+<button id="next" onclick="qu()" style="margin-left:650px;margin-top:380px;">Next</button>
+<button id="submit" onclick="ans()">submit</button>
 </div>
+
+<%int userid= (int)session.getAttribute("userid");
+int examId=Integer.parseInt(request.getParameter("examid"));
+String examName=request.getParameter("examName");
+%>
+<div id="finish">
+<form action="scoreDetails" >
+<input style="visibility:hidden;" type="text" id="examId" name="examId" value="<%=examId%>">
+<input style="visibility:hidden;" type="text" id="examName" name="examName" value="<%=examName%>">
+<input style="visibility:hidden;" type="text" id="studentId" name="uID" value="<%=userid%>"/>
+<input style="visibility:hidden;" type="text" id="score" name="score">
+<input style="visibility:hidden;" type="text" id="passOrFail" name="passOrFail">
+<input style="visibility:hidden;" type="text" id="grade" name="grade">
+<button>View my Exam</button>
+</form></div>
 </body>
 </html>
 <script>
@@ -175,6 +202,7 @@ function ans(){
 	var ans9=document.getElementsByName("answer9");
 	var ans10=document.getElementsByName("answer10");
 	
+	document.getElementById("submit").style.visibility="hidden";
 	 document.getElementById("question1").style.visibility="hidden";
      document.getElementById("question2").style.visibility="hidden";
      document.getElementById("question3").style.visibility="hidden";
@@ -188,7 +216,7 @@ function ans(){
      
 	
 	
-		//answer 1
+   //answer 1
 		const rbs=document.querySelectorAll('input[name="answer1"]');
 		for(const rb of rbs){
 			if(rb.checked){
@@ -299,12 +327,50 @@ function ans(){
 			}
 		}
 		
+		document.getElementById("finish").style.visibility="visible";
 		console.log(mark);
 		document.getElementById("result").innerHTML="Your Mark Is: "+mark;	
+		//return mark;
 
 		   clearInterval(inter);
 		
 		document.getElementById("buttons").style.visibility="hidden";
+		document.getElementById("score").value=mark;
+		if(mark>=5){
+			
+			document.getElementById("passOrFail").value="pass";
+			document.getElementById("passFail").innerHTML="You have passed";
+			if(mark==5){
+				document.getElementById("grade").value="E";
+				document.getElementById("studentGrade").innerHTML="Your grade is : E";
+			}
+			else if(mark==6){
+				document.getElementById("grade").value="D";
+				document.getElementById("studentGrade").innerHTML="Your grade is : D";
+			}
+			else if(mark==7){
+				document.getElementById("grade").value="C";
+				document.getElementById("studentGrade").innerHTML="Your grade is : C";
+			}
+			else if(mark==8){
+				document.getElementById("grade").value="B";
+				document.getElementById("studentGrade").innerHTML="Your grade is : B";
+			}
+			else if(mark==9){
+				document.getElementById("grade").value="A";
+				document.getElementById("studentGrade").innerHTML="Your grade is : A";
+			}
+			else if(mark==10){
+				document.getElementById("grade").value="O";
+				document.getElementById("studentGrade").innerHTML="Your grade is : O";
+			}
+		}
+		else{
+			document.getElementById("passOrFail").value="fail";
+			document.getElementById("passFail").innerHTML="You have failed";
+			document.getElementById("grade").value="RA";
+			document.getElementById("studentGrade").innerHTML="Your grade is : RA";
+		}
 
 }
 
@@ -318,6 +384,7 @@ function ans(){
         document.getElementById("question8").style.visibility="hidden";
         document.getElementById("question9").style.visibility="hidden";
         document.getElementById("question10").style.visibility="hidden";
+        document.getElementById("submit").style.visibility="hidden";
       
 function qu(){
 	
@@ -334,6 +401,7 @@ function qu(){
         document.getElementById("question8").style.visibility="hidden";
         document.getElementById("question9").style.visibility="hidden";
         document.getElementById("question10").style.visibility="hidden";
+        document.getElementById("submit").style.visibility="hidden";
 	num++;  
 }
 else if(num==1){
@@ -347,6 +415,7 @@ else if(num==1){
         document.getElementById("question8").style.visibility="hidden";
         document.getElementById("question9").style.visibility="hidden";
         document.getElementById("question10").style.visibility="hidden";
+        document.getElementById("submit").style.visibility="hidden";
         num++; 
 }
 
@@ -361,6 +430,7 @@ else if(num==2){
         document.getElementById("question8").style.visibility="hidden";
         document.getElementById("question9").style.visibility="hidden";
         document.getElementById("question10").style.visibility="hidden";
+        document.getElementById("submit").style.visibility="hidden";
         num++;
 }
 else if(num==3){
@@ -374,6 +444,7 @@ else if(num==3){
         document.getElementById("question8").style.visibility="hidden";
         document.getElementById("question9").style.visibility="hidden";
         document.getElementById("question10").style.visibility="hidden";
+        document.getElementById("submit").style.visibility="hidden";
         num++;
 }
 else if(num==4){
@@ -387,6 +458,7 @@ else if(num==4){
         document.getElementById("question8").style.visibility="hidden";
         document.getElementById("question9").style.visibility="hidden";
         document.getElementById("question10").style.visibility="hidden";
+        document.getElementById("submit").style.visibility="hidden";
         num++;
 }
 else if(num==5){
@@ -400,6 +472,7 @@ else if(num==5){
         document.getElementById("question8").style.visibility="hidden";
         document.getElementById("question9").style.visibility="hidden";
         document.getElementById("question10").style.visibility="hidden";
+        document.getElementById("submit").style.visibility="hidden";
         num++;
 }
 else if(num==6){
@@ -413,6 +486,7 @@ else if(num==6){
         document.getElementById("question8").style.visibility="hidden";
         document.getElementById("question9").style.visibility="hidden";
         document.getElementById("question10").style.visibility="hidden";
+        document.getElementById("submit").style.visibility="hidden";
         num++;
 }
 else if(num==7){
@@ -426,6 +500,7 @@ else if(num==7){
         document.getElementById("question8").style.visibility="visible";
         document.getElementById("question9").style.visibility="hidden";
         document.getElementById("question10").style.visibility="hidden";
+        document.getElementById("submit").style.visibility="hidden";
         num++;
 }
 else if(num==8){
@@ -439,6 +514,7 @@ else if(num==8){
         document.getElementById("question8").style.visibility="hidden";
         document.getElementById("question9").style.visibility="visible";
         document.getElementById("question10").style.visibility="hidden";
+        document.getElementById("submit").style.visibility="hidden";
         num++;
 }
 else if(num==9){
@@ -452,6 +528,8 @@ else if(num==9){
         document.getElementById("question8").style.visibility="hidden";
         document.getElementById("question9").style.visibility="hidden";
         document.getElementById("question10").style.visibility="visible";
+        document.getElementById("next").style.visibility="hidden";
+        document.getElementById("submit").style.visibility="visible";
         num++;
 }
 else if(num==10){
@@ -465,6 +543,9 @@ else if(num==10){
     document.getElementById("question8").style.visibility="hidden";
     document.getElementById("question9").style.visibility="hidden";
     document.getElementById("question10").style.visibility="hidden";
+    document.getElementById("next").style.visibility="hidden";
+    document.getElementById("submit").style.visibility="hidden";
+
 }
 }
 document.getElementById("hour").style.color="green";
@@ -523,9 +604,156 @@ if(hour==0 && min==0)  {
      document.getElementById("question8").style.visibility="hidden";
      document.getElementById("question9").style.visibility="hidden";
      document.getElementById("question10").style.visibility="hidden";
-     
-     console.log(mark);
+
+     document.getElementById("buttons").style.visibility="hidden";
+     mark=0;
+
+   //answer 1
+		const rbs=document.querySelectorAll('input[name="answer1"]');
+		for(const rb of rbs){
+			if(rb.checked){
+				//selectedvalue=rb.value;
+				if(rb.value=="All of the above."){
+					mark++;
+				}
+				break;
+			}
+		}
+		
+		//answer 2
+		const rbs2=document.querySelectorAll('input[name="answer2"]');
+		for(const rb2 of rbs2){
+			if(rb2.checked){
+				if(rb2.value=="ex"){
+					mark++;
+				}
+				break;
+			}
+		}
+		
+		//answer 3
+		const rbs3=document.querySelectorAll('input[name="answer3"]');
+		for(const rb3 of rbs3){
+			if(rb3.checked){
+				if(rb3.value=="vh"){
+					mark++;
+				}
+				break;
+			}
+		}
+		
+		//answer 4
+		const rbs4=document.querySelectorAll('input[name="answer4"]');
+		for(const rb4 of rbs4){
+			if(rb4.checked){
+				if(rb4.value=="background-position"){
+					mark++;
+				}
+				break;
+			}
+		}
+		
+		//answer 5
+		const rbs5=document.querySelectorAll('input[name="answer5"]');
+		for(const rb5 of rbs5){
+			if(rb5.checked){
+				if(rb5.value=="text-align"){
+					mark++;
+				}
+				break;
+			}
+		}
+		
+		//answer 6
+		const rbs6=document.querySelectorAll('input[name="answer6"]');
+		for(const rb6 of rbs6){
+			if(rb6.checked){
+				if(rb6.value==":link"){
+					mark++;
+				}
+				break;
+			}
+		}
+		
+		//answer 7
+		const rbs7=document.querySelectorAll('input[name="answer7"]');
+		for(const rb7 of rbs7){
+			if(rb7.checked){
+				if(rb7.value==":border-right-color"){
+					mark++;
+				}
+				break;
+			}
+		}
+		
+		//answer 8
+		const rbs8=document.querySelectorAll('input[name="answer8"]');
+		for(const rb8 of rbs8){
+			if(rb8.checked){
+				if(rb8.value==":margin-left"){
+					mark++;
+				}
+				break;
+			}
+		}
+		
+		//answer 9
+		const rbs9=document.querySelectorAll('input[name="answer9"]');
+		for(const rb9 of rbs9){
+			if(rb9.checked){
+				if(rb9.value=="padding-bottom"){
+					mark++;
+				}
+				break;
+			}
+		}
+		
+		//answer 10
+		const rbs10=document.querySelectorAll('input[name="answer10"]');
+		for(const rb10 of rbs10){
+			if(rb10.checked){
+				if(rb10.value=="Both of the above."){
+					mark++;
+				}
+				break;
+			}
+		}
+		
+		document.getElementById("finish").style.visibility="visible";
+		console.log(mark);
 		document.getElementById("result").innerHTML="Your Mark Is: "+mark;	
+		//return mark;
+
+		   clearInterval(inter);
+		
+		document.getElementById("buttons").style.visibility="hidden";
+		document.getElementById("score").value=mark;
+		if(mark>=5){
+			
+			document.getElementById("passOrFail").value="pass";
+			if(mark==5){
+				document.getElementById("grade").value="E";
+			}
+			else if(mark==6){
+				document.getElementById("grade").value="D";
+			}
+			else if(mark==7){
+				document.getElementById("grade").value="C";
+			}
+			else if(mark==8){
+				document.getElementById("grade").value="B";
+			}
+			else if(mark==9){
+				document.getElementById("grade").value="A";
+			}
+			else if(mark==10){
+				document.getElementById("grade").value="O";
+			}
+		}
+		else{
+			document.getElementById("passOrFail").value="fail";
+			document.getElementById("grade").value="RA";
+		}	
 }
 
 }
