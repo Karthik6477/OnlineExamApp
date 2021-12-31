@@ -1,4 +1,4 @@
-<%@page import="com.marieswaran.ShowUsersDetails"%>
+<%@page import="com.controller.ShowUsersDetails"%>
 <%@page import="java.sql.ResultSet"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -25,7 +25,9 @@ body{
 <body>
 	<a id="ExamDetails" href="ExamDetails.jsp"><h4 style="float: right;margin-right:10px;">ExamDetails</h4></a>
 	<h2>Users</h2>
-	<% ResultSet rs=ShowUsersDetails.showUsers(); %>
+	
+	<% ShowUsersDetails sd=new ShowUsersDetails();
+	ResultSet rs=sd.showUsers(); %>
 	<table style="width: 80%;margin-left: 100px;">
         <tr>
             <th>User Id</th>

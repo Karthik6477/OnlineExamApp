@@ -1,4 +1,4 @@
-<%@page import="onlineExamDao.ScoreDetailsDao"%>
+<%@page import="com.Dao.ScoreDetailsDao"%>
 <%@page import="java.sql.ResultSet"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -16,7 +16,10 @@ body{
 <body>
 	<h2>Score Details</h2>
 	<%int userid= (int)session.getAttribute("userid");
-	ResultSet rs=ScoreDetailsDao.viewScore(userid); %>
+	//System.out.println(userid);
+	ScoreDetailsDao dd=new ScoreDetailsDao();
+	ResultSet rs=dd.viewScore(userid); 
+	%>
 	<table style="width: 80%;margin-left: 100px;">
         <tr>
             <th>Student Id</th>

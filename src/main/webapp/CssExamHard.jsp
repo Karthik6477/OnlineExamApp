@@ -552,7 +552,7 @@ document.getElementById("hour").style.color="green";
 document.getElementById("min").style.color="green";    
 
 var min=0;
-var hour=15;
+var hour=20;
 var inter=0;
 function clcok(){
 	document.getElementById("buttons").style.visibility="visible";
