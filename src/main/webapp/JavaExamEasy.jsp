@@ -59,11 +59,11 @@ text-align:center;
 visibility:hidden;
 }
 </style>
-<title>CSS Exam</title>
+<title>JAVA Exam</title>
 </head>
 <body>
 	
-	<h2><u>CSS Exam</u></h2>
+	<h2><u>JAVA Exam</u></h2>
 	<div id="clock">
     <b id="hour">--</b><label> &nbsp;:&nbsp;</label><b id="min">--</b>
 </div>

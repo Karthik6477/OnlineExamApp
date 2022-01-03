@@ -1,4 +1,4 @@
-<%@page import="com.Dao.ScoreDetailsDao"%>
+<%@page import="com.onlineexam.impl.ScoreDetailsDao"%>
 <%@page import="java.sql.ResultSet"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -10,11 +10,28 @@
 body{
     background: linear-gradient(to right, springgreen, rgb(253, 253, 53));
 }
+table,th,td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 20px;
+}
+h2{
+	text-align:center;
+}
+a{
+	float:right;
+	margin-right:15px;
+	margin-top:-40px;
+	font-weight:bolder;
+	font-size:x-large;
+	color:black;
+}
 </style>
 <title>Score Details</title>
 </head>
 <body>
-	<h2>Score Details</h2>
+	<h2><u>Score Details</u></h2>
+	<a href="UserMain.html"><b>Home</b></a>
 	<%int userid= (int)session.getAttribute("userid");
 	//System.out.println(userid);
 	ScoreDetailsDao dd=new ScoreDetailsDao();
@@ -28,6 +45,7 @@ body{
             <th>Score</th>
             <th>PassOrFail</th>
             <th>Grade</th>
+            <th>Exam Date</th>
         </tr>
         <% while(rs.next()){ 
         	%>
@@ -38,6 +56,7 @@ body{
                 <td><%=rs.getInt(4)%></td>
                 <td><%=rs.getString(5)%></td>
                 <td><%=rs.getString(6)%></td>
+                <td><%=rs.getDate(7)%></td>
                 
                </tr>
                <%} %>

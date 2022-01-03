@@ -1,4 +1,4 @@
-<%@page import="com.controller.ShowExamDetails"%>
+<%@page import="com.onlineexam.controller.ShowExamDetails"%>
 <%@page import="java.sql.ResultSet"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -47,14 +47,14 @@ body{
                 <td><%=rs.getString(4)%></td>
                 <td><%=rs.getString(5)%></td>
                 <% if(rs.getString(2).equals("JAVA")){%>
-                	<td><a href="JavaExamHard.jsp"><button type="submit">Take Exam</button></a></td>
+                	<td><a href="JavaExamHard.jsp?examid=<%=rs.getInt(1)%>&examName=<%=rs.getString(2)%>"><button type="submit">Take Exam</button></a></td>
                 	
                <% } 
                 else if(rs.getString(2).equals("HTML")){%>
-                	<td><a href="HtmlExamHard.jsp"><button type="submit">Take Exam</button></a></td>
+                	<td><a href="HtmlExamHard.jsp?examid=<%=rs.getInt(1)%>&examName=<%=rs.getString(2)%>"><button type="submit">Take Exam</button></a></td>
                <%  }
                 else if(rs.getString(2).equals("CSS")){%>
-                	<td><a href="CssExamHard.jsp"><button type="submit">Take Exam</button></a></td>
+                	<td><a href="CssExamHard.jsp?examid=<%=rs.getInt(1)%>&examName=<%=rs.getString(2)%>"><button type="submit">Take Exam</button></a></td>
                <%  }
                  %>
                 

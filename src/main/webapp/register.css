@@ -21,9 +21,11 @@ body{
     left: -40px;
 }
 .registerform .registerformcontent button{
+    
     position: relative;
-    left: 70px;
-    bottom: 20px;
+    left: 80px;
+    bottom: 30px;
+    font-weight:bolder;
 }
 .registerform .registerformcontent input{
    width: 250px;
@@ -35,4 +37,6 @@ body{
     left: 45px;
     top: 20px;
  }
-
+.button{
+	
+}

@@ -73,5 +73,7 @@
    <a href="ShowExams.jsp"><button type="submit">Show Exams</button></a>
    <h2><u>List of Users</u></h2>
    <a href="ShowUsers.jsp"><button type="submit">Show Users</button></a>
+   <h2><u>List of Exams completed by Users</u></h2>
+   <a href="ShowUsersExams.jsp"><button type="submit">Show all exams</button></a>
 </body>
 </html>

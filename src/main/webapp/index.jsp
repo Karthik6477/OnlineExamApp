@@ -19,14 +19,15 @@
         <input type="password"  pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&?/*$^]).{8,16}$" title="Minimum 8 characters should be there.There should be atleast one numeric,special character,capital letter and small letter." name="password" id="password" required placeholder="password" ><br><br>
         <button type="submit">Submit</button>
         <button type="reset">Reset</button><br><br>
-        <a href="register.html" class="newUserMove" title="You have to sign-up!">New user?</a>
+        <a href="UserPasswordUpdateServlet.jsp">Forgot Password?</a><br><br>
+        Don't have an account<a href="register.html" class="newUserMove" title="You have to sign-up!">New user?</a>
       
     </div>
 </form>
 
     <% String error=(String)session.getAttribute("loginResult");
       	if(error!=null){%>
-      		<h3 style="margin-left:543px;margin-top:500px; size:70%"><%=session.getAttribute("loginResult") %></h3>
+      		<h3 style="margin-left:565px;margin-top:563px; size:70%"><%=session.getAttribute("loginResult") %></h3>
       	<%} %>
 
         <% session.removeAttribute("loginResult");%>
